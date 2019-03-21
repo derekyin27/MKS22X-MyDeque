@@ -19,16 +19,23 @@ public int size(){
   return size;
  }
 public String toString(){
-  String str = "";
+  String str = "{";
   for (int i = 0; i < data.length; i++){
-    str+= data[i];
+    str+= data[i] + " ";
   }
-  return str;
+  return str + "}";
  }
+ private void resize(){}
 public void addFirst(E element){
-
+  if (data[data.length] != null) resize();
+if (start < end && end <data.length){
+data[data.length] = element;
+}
  }
-public void addLast(E element){ }
+ int i =0;
+public void addLast(E element){
+  if (end < data.length) data[end+1] = element;
+ }
 public E removeFirst(){
   E ret = data[start];
   start++;
