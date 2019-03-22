@@ -25,7 +25,14 @@ public String toString(){
   }
   return str + "}";
  }
- private void resize(){}
+ @SuppressWarnings("unchecked")
+ private void resize(){
+   E[] resized = (E[])new Object[size*2];
+   for (int i = 0; i < data.length; i++){
+     resized[i] = data[i];
+   }
+   data = resized;
+ }
 public void addFirst(E element){
   if (data[data.length] != null) resize();
 if (start < end && end <data.length){
