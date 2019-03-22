@@ -21,6 +21,7 @@ public int size(){
 public String toString(){
   String str = "{";
   for (int i = 0; i < data.length; i++){
+    if (data[i] != null)
     str+= data[i] + " ";
   }
   return str + "}";
