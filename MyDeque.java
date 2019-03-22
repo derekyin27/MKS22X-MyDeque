@@ -34,14 +34,24 @@ public String toString(){
    data = resized;
  }
 public void addFirst(E element){
-  if (data[data.length] != null) resize();
-if (start < end && end <data.length){
-data[data.length] = element;
-}
+  if (data[data.length] != null){
+    resize();
+
  }
- int i =0;
+}
+
 public void addLast(E element){
-  if (end < data.length) data[end+1] = element;
+  if (end < data.length){
+    data[end+1] = element;
+    end++;
+    size++;
+  }
+  else if (data[data.length-1] != null){
+    resize();
+    data[end+1] = element;
+    end++;
+    size++;
+  }
  }
 public E removeFirst(){
   E ret = data[start];
@@ -59,6 +69,6 @@ public E getFirst(){
 return data[start];
 }
 public E getLast(){
-return data[start];
+return data[end];
 }
 }
