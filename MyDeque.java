@@ -5,16 +5,16 @@ private int size, start, end;
 @SuppressWarnings("unchecked")
 public MyDeque(){
   data = (E[])new Object[10];
-  size=10;//default size of 10 for no parameter constructor
-  start = 0;
-  end = data.length;
+  size=0;//default size of 10 for no parameter constructor
+  start = -1;
+  end = -1;
   }
 @SuppressWarnings("unchecked")
 public MyDeque(int initialCapacity){
   data = (E[])new Object[size];
-  size = initialCapacity;
-  start = 0;
-  end = data.length;
+  size = 0;
+  start = -1;
+  end = -1;
   }
 public int size(){
   return size;
