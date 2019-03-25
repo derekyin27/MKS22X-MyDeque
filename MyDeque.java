@@ -85,19 +85,26 @@ public void addFirst(E element){
 
 public void addLast(E element){
   if (element == null) throw new NullPointerException();//checks if element is null
-  if (size >= data.length) resize();
-  else if (end < data.length){//simply add the value to the right of last value
-    data[end+1] = element;
-    end++;
-    size++;
+  if (data[0] == null){
+    end =0;
+    data[end] = element;
+    start=0;
   }
-  else if (data[data.length-1] != null){//if the deque full, resize then add
+  else if (end+1 == data.length || end+1 == start){
     resize();
-    data[end+1] = element;
     end++;
-    size++;
+    data[end] = element;
   }
+  else if (end==0){
+    end =1;
+    data[end] = element;
  }
+ else {
+   end++;
+   data[end] = element;
+ }
+ size++;
+}
 public E removeFirst(){
   if (isEmpty()) throw new NoSuchElementException();
   else {E ret = data[start];//removes first element and return that value
