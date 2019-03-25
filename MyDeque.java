@@ -61,19 +61,25 @@ else {
  }
 public void addFirst(E element){
   if (element == null) throw new NullPointerException();
-  if (start==0 && size>= data.length-1){
+  if (data[0] == null){
+    end = 0;
+    data[end] = element;
+    start=0;
+  }
+  else if (start-1 == end){
     resize();
- }
- else{
-   start = data.length-1;
-   data[data.length-1] = element;
-   size++;
- }
- if (start !=0 && size!=data.length-1){
-   start--;
-   data[start] = element;
-   size++;
- }
+    start = data.length-1;
+    data[start] = element;
+  }
+  else if (start==0){
+    start = data.length-1;
+    data[start] = element;
+  }
+  else{
+    start--;
+    data[start] = element;
+  }
+  size++;
 
 }
 
