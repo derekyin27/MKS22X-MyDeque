@@ -107,26 +107,26 @@ public void addLast(E element){
 }
 public E removeFirst(){
   if (isEmpty()) throw new NoSuchElementException();
-  else {E ret = data[start];//removes first element and return that value
-  start++;
+  E ret = data[start++];//removes first element and return that value
+  data[start-1]=null;
+  if (start == data.length) start=0;
   size--;
 return ret;
 }
-}
 public E removeLast(){
   if (isEmpty()) throw new NoSuchElementException();//remove last element then return that value
-  else {E ret = data[end];
-  end--;
+  E ret = data[end--];
+  data[end+1] = null;
+  if (end == -1) end = data.length-1;
   size--;
   return ret;
 }
-}
 public E getFirst(){
-  if (isEmpty()) throw new NoSuchElementException();
+  if (size==0) throw new NoSuchElementException();
 else return data[start];//only returns first element
 }
 public E getLast(){
-  if (isEmpty()) throw new NoSuchElementException();
+  if (size==0) throw new NoSuchElementException();
 else return data[end];//returns last element only
 }
 }
