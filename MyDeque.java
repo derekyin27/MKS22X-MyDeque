@@ -6,26 +6,39 @@ private int size, start, end;
 public MyDeque(){
   data = (E[])new Object[10];
   size=0;//default size of 10 for no parameter constructor
-  start = -1;
-  end = -1;
+  start = 0;
+  end = 0;
   }
 @SuppressWarnings("unchecked")
 public MyDeque(int initialCapacity){
   data = (E[])new Object[size];
   size = 0;
-  start = -1;
-  end = -1;
+  start = 0;
+  end = 0;
   }
 public int size(){
   return size;
  }
 public String toString(){
   String str = "{";
+  if (size ==0)return "{ }";
+  else if (start< end){
   for (int i = 0; i < data.length; i++){
     if (data[i] != null)
     str+= data[i] + " ";
   }
-  return str + "}";
+  str+="}";
+}
+else {
+  for (int i = 0; i <= end; i++){
+    str+=data[i]+" ";
+  }
+  for (int i = start; i < data.length; i++){
+    str+=data[i]+" ";
+  }
+  str+=" }";
+}
+  return str;
  }
  @SuppressWarnings("unchecked")
  private void resize(){
