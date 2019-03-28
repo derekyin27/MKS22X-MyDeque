@@ -35,6 +35,12 @@ public class Calculator{
         comp = value2 / value;
         stack.addLast(comp + "");
       }
+      else if (next.equals("%")){
+        double value = Double.parseDouble(stack.removeLast());
+        double value2 = Double.parseDouble(stack.removeLast());
+        comp = value2 % value;
+        stack.addLast(comp + "");
+      }
     }
 
     }
