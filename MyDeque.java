@@ -1,4 +1,4 @@
-import java.util.NoSuchElementException;
+import java.util.*;
 public class MyDeque<E>{
 private E[] data;
 private int size, start, end;
@@ -107,7 +107,7 @@ public void addLast(E element){
  size++;
 }
 public E removeFirst(){
-  if (isEmpty()) throw new NoSuchElementException();
+  if (size==0) throw new NoSuchElementException();
   E ret = data[start++];//removes first element and return that value
   data[start-1]=null;
   if (start == data.length) start=0;
@@ -115,10 +115,12 @@ public E removeFirst(){
 return ret;
 }
 public E removeLast(){
-  if (isEmpty()) throw new NoSuchElementException();//remove last element then return that value
+  if (size==0) throw new NoSuchElementException();//remove last element then return that value
   E ret = data[end--];
   data[end+1] = null;
-  if (end == -1) end = data.length-1;
+  if (end == -1){
+     end = data.length-1;
+  }
   size--;
   return ret;
 }
