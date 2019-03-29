@@ -16,12 +16,13 @@ public MyDeque(int initialCapacity){
   start = 0;
   end = 0;
   }
+
 public int size(){
   return size;
  }
 public String toString(){
   String str = "{";
-  if (size ==0)return "{ }";
+  if (size ==0)return "{}";
   else if (start< end){
   for (int i = 0; i < data.length; i++){
     if (data[i] != null)
@@ -51,7 +52,7 @@ else {
      resized[counter++] = data[i];
    }
    data = resized;
-   end = count-1;
+   end = counter-1;
  }
  private boolean isEmpty(){
    for (int i = 0; i < data.length; i++){
